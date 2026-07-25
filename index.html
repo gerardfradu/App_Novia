@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Nuestra Historia</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css?v=3">
+</head>
+<body>
+
+    <!-- PANTALLA INICIAL DE BIENVENIDA -->
+    <div id="pantalla-bienvenida">
+        <div class="contenido-bienvenida">
+            <h1>✨ ¡Bienvenido/a! ✨</h1>
+            <p id="texto-bienvenida">
+                Aquí irá el texto especial que quieras escribir más adelante... ❤️
+            </p>
+            <button id="btn-entrar">Ver nuestra historia 🗺️</button>
+        </div>
+    </div>
+
+    <!-- BUSCADOR -->
+    <div id="buscador-container">
+        <input type="text" id="buscador-input" placeholder="🔍 Buscar sitio...">
+        <ul id="buscador-resultados"></ul>
+    </div>
+
+    <!-- MAPA -->
+    <div id="map"></div>
+
+    <!-- LEYENDA -->
+    <div id="leyenda" class="leyenda-plegada">
+        <div id="leyenda-cabecera"><h4 class="titulo-leyenda">📖 Nuestros Sitios <span>▼</span></h4></div>
+        <ul id="leyenda-lista"></ul>
+    </div>
+
+    <!-- CONTROLES INFERIORES -->
+    <div id="controles-inferiores">
+        <button id="btn-cambiar-mapa">🌍 Cambiar a Calles</button>
+        <button id="btn-gps">📍 Mi Ubicación</button>
+    </div>
+
+    <!-- BOTÓN DE CUBATA Y MENU DE JUEGO -->
+    <div id="cubata-container">
+        <button id="btn-cubata" title="Juego Verdad o Reto">🍹</button>
+        <div id="menu-juego" class="oculto">
+            <h4>🍹 Verdad o Reto</h4>
+            <button class="btn-modo modo-chill" onclick="abrirJuego('chill')">🍃 Chill</button>
+            <button class="btn-modo modo-beber" onclick="abrirJuego('beber')">🍻 Beber</button>
+            <button class="btn-modo modo-extremo" onclick="abrirJuego('extremo')">🔥 Extremo</button>
+            <button class="btn-modo modo-ultra" onclick="abrirJuego('ultra')">💀 Ultra Extremo</button>
+        </div>
+    </div>
+
+    <!-- MODAL PARA MOSTRAR LAS PREGUNTAS/RETOS DEL JUEGO -->
+    <div id="modal-juego" class="oculto">
+        <div class="contenido-juego">
+            <span id="cerrar-juego" onclick="cerrarJuego()">&times;</span>
+            <h2 id="titulo-modo">Modo</h2>
+            <div id="tarjeta-tarjeta">
+                <p id="texto-reto">Pulsa un botón para empezar 👇</p>
+            </div>
+            <div class="botones-juego">
+                <button onclick="obtenerVerdad()" class="btn-verdad">🤔 Verdad</button>
+                <button onclick="obtenerReto()" class="btn-reto">⚡ Reto</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
