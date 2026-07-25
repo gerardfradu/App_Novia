@@ -1,6 +1,25 @@
 body, html { margin: 0; padding: 0; width: 100%; height: 100%; font-family: sans-serif; overflow: hidden; }
 #map { width: 100vw; height: 100vh; z-index: 1; }
 
+/* PANTALLA DE BIENVENIDA */
+#pantalla-bienvenida {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(135deg, #ffd1dc, #ffe6eb, #fff5f7);
+    z-index: 9999; display: flex; justify-content: center; align-items: center; text-align: center;
+}
+.contenido-bienvenida {
+    background: rgba(255, 255, 255, 0.9); padding: 30px; border-radius: 25px;
+    width: 80%; max-width: 400px; box-shadow: 0 10px 25px rgba(0,0,0,0.15); border: 2px solid #ffd1dc;
+}
+.contenido-bienvenida h1 { color: #d63384; margin-bottom: 15px; font-size: 24px; }
+.contenido-bienvenida p { color: #555; line-height: 1.5; font-size: 15px; margin-bottom: 25px; }
+#btn-entrar {
+    background: #d63384; color: white; border: none; padding: 14px 28px;
+    border-radius: 25px; font-weight: bold; font-size: 16px; cursor: pointer; transition: transform 0.2s;
+}
+#btn-entrar:active { transform: scale(0.95); }
+
+/* BUSCADOR Y LEYENDA */
 #buscador-container { position: absolute; top: 15px; right: 60px; z-index: 1000; width: 220px; }
 #buscador-input { width: 100%; padding: 12px; border-radius: 20px; border: 2px solid #ffd1dc; box-sizing: border-box; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
 #buscador-resultados { list-style: none; padding: 0; margin-top: 5px; background: white; border-radius: 10px; max-height: 150px; overflow-y: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
@@ -12,10 +31,51 @@ body, html { margin: 0; padding: 0; width: 100%; height: 100%; font-family: sans
 #leyenda-lista { list-style: none; padding: 0; margin: 0; max-height: 300px; overflow-y: auto; -webkit-overflow-scrolling: touch; }
 .leyenda-plegada { max-height: 40px !important; overflow: hidden !important; }
 
+/* POPUPS Y CONTROLES */
 .leaflet-popup-content-wrapper { border-radius: 15px !important; width: 280px !important; }
 .popup-imagen { width: 100%; height: 150px; object-fit: cover; border-radius: 8px; }
 .popup-texto { font-size: 14px; max-height: 180px; overflow-y: auto; margin-top: 10px; color: #333; line-height: 1.4; }
 
 #controles-inferiores { position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%); z-index: 1000; display: flex; gap: 10px; }
-button { background: #ffd1dc; color: #555; border: none; padding: 12px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.2); } 
+button { background: #ffd1dc; color: #555; border: none; padding: 12px 20px; border-radius: 20px; font-weight: bold; cursor: pointer; box-shadow: 0 4px 6px rgba(0,0,0,0.2); }
+
+/* BOTÓN DE CUBATA Y MENÚ DEL JUEGO */
+#cubata-container { position: absolute; bottom: 30px; right: 20px; z-index: 1001; }
+#btn-cubata {
+    font-size: 26px; width: 55px; height: 55px; border-radius: 50%; background: #ffd1dc;
+    border: 2px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.3); cursor: pointer;
+    display: flex; justify-content: center; align-items: center; padding: 0;
 }
+
+#menu-juego {
+    position: absolute; bottom: 70px; right: 0; background: white; border-radius: 15px;
+    padding: 12px; width: 160px; box-shadow: 0 5px 15px rgba(0,0,0,0.2); border: 2px solid #ffd1dc;
+    display: flex; flex-direction: column; gap: 8px; text-align: center;
+}
+#menu-juego h4 { margin: 0 0 5px 0; color: #555; font-size: 14px; }
+.btn-modo { border: none; padding: 8px; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 13px; color: white; }
+.modo-chill { background: #71d0a5; }
+.modo-beber { background: #f39c12; }
+.modo-extremo { background: #e74c3c; }
+.modo-ultra { background: #8e44ad; }
+
+/* MODAL DE JUEGO (TARJETA) */
+#modal-juego {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.6); z-index: 2000; display: flex; justify-content: center; align-items: center;
+}
+.contenido-juego {
+    background: white; width: 85%; max-width: 350px; padding: 25px; border-radius: 20px;
+    text-align: center; position: relative; box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+#cerrar-juego { position: absolute; top: 10px; right: 15px; font-size: 24px; cursor: pointer; color: #888; }
+#tarjeta-tarjeta {
+    background: #fdf2f4; border: 2px dashed #ffd1dc; border-radius: 12px;
+    padding: 20px; margin: 15px 0; min-height: 100px; display: flex; align-items: center; justify-content: center;
+}
+#texto-reto { font-size: 16px; color: #333; margin: 0; font-weight: bold; }
+.botones-juego { display: flex; gap: 10px; justify-content: center; }
+.btn-verdad { background: #3498db; color: white; }
+.btn-reto { background: #e67e22; color: white; }
+
+.oculto { display: none !important; }
